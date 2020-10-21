@@ -1,6 +1,7 @@
 
 #USAGE:
 
+```
 await fetchAsync('https://raw.githubusercontent.com/zackmark29/hmacsha1/main/hmacsha1.js');
 
 var key = '';
@@ -20,5 +21,6 @@ async function fetchAsync(url) {
     const data = await promise.text();
     return data;
 }
+```
 
 credit: https://stackoverflow.com/a/43965010/14311474
