@@ -1,6 +1,5 @@
 (function () {
     var
-
         util = {
             getDataType: function (data) {
                 if (typeof data === 'string') {
@@ -524,25 +523,18 @@ function byteLength(str) {  // counts characters only 1byte in length, of a stri
         if (code >= 0x0 && code <= 0xff) byteLen++;
         else {
             throw new Error("More the 1 byte code detected, byteLength functon aborted.");
-            return;
         }
-
     }
-
     return byteLen;
-
 }
-
 function oneByteCharAt(str, idx) {
     var code = str.codePointAt(idx);
     if (code >= 0x00 && code <= 0xff) { // we are interested at reading only one byte
         return str.charAt(idx); // return char.
-
     }
     else {
         throw new Error("More then 1byte character detected, |oneByteCharAt()| function  is aborted.")
     }
-
 }
 
 function hexToString(sha1Output) { // converts every pair of hex CHARS to their character conterparts
@@ -575,8 +567,6 @@ function hexToString(sha1Output) { // converts every pair of hex CHARS to their 
         bin = shiftedL | rcode; // 
         char = String.fromCharCode(bin);
         result += char;
-
-
     }
     // console.log("|"+result+"|", result.length); // prints info, line can be deleted
 
@@ -584,14 +574,10 @@ function hexToString(sha1Output) { // converts every pair of hex CHARS to their 
 }
 function hmacSha1(key, baseString) {
 
-
     var blocksize = 64; // 64 when using these hash functions: SHA-1, MD5, RIPEMD-128/160 .
     var kLen = byteLength(key); // length of key in bytes;
     var opad = 0x5c; // outer padding  constant = (0x5c) . And 0x5c is just hexadecimal for backward slash "\" 
     var ipad = 0x36; // inner padding contant = (0x36). And 0x36 is hexadecimal for char "6".
-
-
-
 
     if (kLen < blocksize) {
         var diff = blocksize - kLen; // diff is how mush  blocksize is bigger then the key
@@ -637,11 +623,8 @@ function hmacSha1(key, baseString) {
 
                 i_paddedCode = charCode ^ ipad;  // XOR with the inner padding constant (ipad)
                 ipad_key += String.fromCharCode(i_paddedCode);
-
             }
-
         }
-        console.log("opad_key: ", "|" + opad_key + "|", "\nipad_key: ", "|" + ipad_key + "|"); // prints opad and ipad key, line can be deleted
     })()
 
     return sha1(opad_key + hexToString(sha1(ipad_key + baseString)));
