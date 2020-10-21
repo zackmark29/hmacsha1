@@ -1,6 +1,7 @@
 
-USAGE:
-await fetchAsync('https://raw.githubusercontent.com/zackmark29/testhmac/main/testhmac.js');
+#USAGE:
+
+await fetchAsync('https://raw.githubusercontent.com/zackmark29/hmacsha1/main/hmacsha1.js');
 
 var key = '';
 var query = '';
